@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,33 +17,32 @@ import com.example.sodastreamproto.ui.theme.SodaStreamProtoTheme
 
 class EditDrinkActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val drinkID = intent.getIntExtra("drinkID", -1)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             SodaStreamProtoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ){
+                    DisplayDrinkID(drinkID)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     SodaStreamProtoTheme {
-        Greeting("Android")
     }
+}
+
+@Composable
+fun DisplayDrinkID(drinkID: Int){
+    Text(
+        text = if(drinkID != -1) "Drink ID: $drinkID" else "Drink not valid"
+    )
 }

@@ -142,8 +142,9 @@ fun ShoppingBasket(modifier: Modifier = Modifier){
                         .border(2.dp, Color.Black)
                         .padding(24.dp)
                         .clickable{
-                            Toast.makeText(context, "${item.drinkName} clicked", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "${item.drinkID} clicked", Toast.LENGTH_SHORT).show()
                             val intent = Intent(currentActivity, EditDrinkActivity::class.java)
+                            intent.putExtra("drinkID", item.drinkID)
                             currentActivity.startActivity(intent)
                         }
                 )

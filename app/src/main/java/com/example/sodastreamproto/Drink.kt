@@ -4,11 +4,21 @@ class Drink(
     val drinkIngredients: ArrayList<Pair<Ingredient, Int>>,
     var drinkName: String,
     var drinkPrice: Double,
-    var drinkQuantity: Int
+    var drinkQuantity: Int,
     ) {
 
     private val maxPumpCountForCollectiveIngredients = 5
     private var currentPumpCountForCollectiveIngredient = 0
+    var drinkID: Int = 0
+
+    init{
+        drinkID =
+            if(Basket.basketDrinks.isNotEmpty()){
+                Basket.basketDrinks.last().drinkID + 1
+            } else{
+                1
+            }
+    }
 
     private fun getIngredientPair(ingredientName: Ingredient): Pair<Ingredient, Int>?{
         for(i in 0 until drinkIngredients.size){
