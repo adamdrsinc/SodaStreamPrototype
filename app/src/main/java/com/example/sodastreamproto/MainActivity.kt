@@ -49,7 +49,10 @@ class MainActivity : ComponentActivity() {
         ),
             drinkName = "Cweamer",
             drinkPrice = 13.82,
-            drinkQuantity = 1)
+            drinkQuantity = 1,
+            isCustom = true)
+
+        Basket.basketDrinks.add(drink1)
 
         var drink2 = Drink(arrayListOf(
             Pair(strawberryCream, 1),
@@ -57,12 +60,32 @@ class MainActivity : ComponentActivity() {
         ),
             drinkName = "Tonker",
             drinkPrice = 9.82,
-            drinkQuantity = 2)
+            drinkQuantity = 2,
+            isCustom = true)
 
-        Basket.basketDrinks.add(drink1)
         Basket.basketDrinks.add(drink2)
-        Basket.basketDrinks.add(drink1)
-        Basket.basketDrinks.add(drink2)
+
+        var drink3 = Drink(arrayListOf(
+            Pair(strawberryCream, 1),
+            Pair(vanilla, 3)
+        ),
+            drinkName = "Custom 1",
+            drinkPrice = 9.82,
+            drinkQuantity = 2,
+            isCustom = true)
+
+        Basket.basketDrinks.add(drink3)
+
+        var drink4 = Drink(arrayListOf(
+            Pair(strawberryCream, 1),
+            Pair(vanilla, 3)
+        ),
+            drinkName = "Custom 2",
+            drinkPrice = 9.82,
+            drinkQuantity = 2,
+            isCustom = true)
+
+        Basket.basketDrinks.add(drink4)
 
 
         super.onCreate(savedInstanceState)

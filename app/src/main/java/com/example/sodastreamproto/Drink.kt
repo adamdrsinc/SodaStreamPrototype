@@ -5,6 +5,7 @@ class Drink(
     var drinkName: String,
     var drinkPrice: Double,
     var drinkQuantity: Int,
+    val isCustom: Boolean
     ) {
 
     private val maxPumpCountForCollectiveIngredients = 5
